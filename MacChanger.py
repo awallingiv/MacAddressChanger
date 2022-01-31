@@ -43,7 +43,7 @@ return that MAC address (if successful)
 """
 def getCurrentMac(interface):
     ifconfig_result = subprocess.check_output(["ifconfig", interface])
-    regexMac = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", ifconfig_result) #format of MAC address
+    regexMac = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", str(ifconfig_result)) #format of MAC address
 
     if regexMac:
         return regexMac.group(0)
